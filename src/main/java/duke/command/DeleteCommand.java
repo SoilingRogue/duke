@@ -34,7 +34,8 @@ public class DeleteCommand extends InputCommand {
         } catch (NumberFormatException e) {
             throw new DukeException("☹ OOPS!!! Please enter a valid number.");
         }
-
+        
+        assert del - 1 <= taskList.getNumTasks();
         return ui.getDeletedTask(taskList.deleteTask(del - 1), taskList.getNumTasks());
     }
 }

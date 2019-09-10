@@ -53,6 +53,8 @@ public class Storage {
                 fw.write(task + System.lineSeparator());
             }
             fw.close();
+
+            assert file.exists() == true;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -8,6 +8,7 @@ public abstract class Task {
     Task(String icon, String description) {
         this.icon = icon.trim();
         this.description = description.trim();
+        assert this.description.length() != 0;
     }
 
     public void markAsDone() {

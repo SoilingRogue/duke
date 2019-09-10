@@ -32,7 +32,8 @@ public class DoneCommand extends InputCommand {
         } catch (InputMismatchException e) {
             throw new DukeException("☹ OOPS!!! Please enter a single number.");
         }
-
+      
+        assert done - 1 <= taskList.getNumTasks();
         return ui.getDoneTask(taskList.doneTask(done - 1));
     }
 }
