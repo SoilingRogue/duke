@@ -22,7 +22,7 @@ public class Storage {
      * @return LinkedList which contains the list of tasks in the saved format
      * @throws DukeException File not found DukeException
      */
-    public LinkedList<String> load() throws DukeException {
+    LinkedList<String> load() throws DukeException {
         LinkedList<String> lst = new LinkedList<>();
 
         try {

@@ -14,17 +14,17 @@ public class DoneCommand extends InputCommand {
 
     @Override
     public String execute(TaskList taskList, Ui ui, Storage storage) throws DukeException {
+        int done;
+
         try {
             String index = getString();
             if (index.split(" ").length > 1) {
                 throw new InputMismatchException();
             }
-            int done = Integer.parseInt(index);
+            done = Integer.parseInt(index);
             if (taskList.getNumTasks() < done) {
                 throw new IndexOutOfBoundsException();
             }
-
-            return ui.getDoneTask(taskList.doneTask(done - 1));
         } catch (IndexOutOfBoundsException e) {
             throw new DukeException("☹ OOPS!!! The index is not within the task list size.");
         } catch (NumberFormatException e) {
@@ -32,5 +32,7 @@ public class DoneCommand extends InputCommand {
         } catch (InputMismatchException e) {
             throw new DukeException("☹ OOPS!!! Please enter a single number.");
         }
+
+        return ui.getDoneTask(taskList.doneTask(done - 1));
     }
 }
